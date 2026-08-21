@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asnawi — Developer Portfolio</title>
+<meta name="description" content="Muhammad Asnawi — full-stack developer (PHP/Laravel) with 4+ years across government and enterprise systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#F5F7FA; --surface:#FFFFFF; --ink:#1B2430; --muted:#5B6675; --heading:#1F3864;
+  --accent:#9E1B32; --accent-tint:#F3E4E7; --line:rgba(20,26,36,.10); --chip:#EEF2F8;
+  --shadow:0 1px 2px rgba(20,30,50,.05), 0 12px 30px rgba(20,30,50,.07);
+  --ease:cubic-bezier(0.16,1,0.3,1);
+  --maxw:1040px;
+  --dsp:"Bricolage Grotesque",Georgia,serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E141F; --surface:#151D2A; --ink:#DCE4F0; --muted:#97A3B6; --heading:#C9D6EE;
+  --accent:#E0526B; --accent-tint:#2A1720; --line:rgba(220,228,240,.12); --chip:#1C2636;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 14px 34px rgba(0,0,0,.45);
+}}
+:root[data-theme="dark"]{
+  --bg:#0E141F; --surface:#151D2A; --ink:#DCE4F0; --muted:#97A3B6; --heading:#C9D6EE;
+  --accent:#E0526B; --accent-tint:#2A1720; --line:rgba(220,228,240,.12); --chip:#1C2636;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 14px 34px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3{font-family:var(--dsp);color:var(--heading);margin:0;line-height:1.08;text-wrap:balance;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+p{margin:0}
+::selection{background:var(--accent);color:#fff}
+
+/* progress bar */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:left;
+  background:var(--accent);z-index:60;will-change:transform}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.4) blur(10px);
+  border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+.nav.scrolled{border-color:var(--line);background:color-mix(in srgb,var(--bg) 82%,transparent)}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.mono-mark{font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:.02em;color:var(--heading)}
+.mono-mark b{color:var(--accent)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{font-family:var(--mono);font-size:13px;color:var(--muted);position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--accent);
+  transform:scaleX(0);transform-origin:right;transition:transform .3s var(--ease)}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-cta{font-family:var(--mono);font-size:13px;border:1px solid var(--line);border-radius:8px;
+  padding:7px 13px;color:var(--ink);transition:transform .12s,border-color .2s,background .2s}
+.nav-cta:hover{border-color:var(--accent);transform:translateY(-1px)}
+@media(max-width:640px){.nav-links{display:none}}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{padding:70px 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:none}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--accent);display:inline-block}
+
+/* hero */
+.hero{padding:76px 0 64px}
+.hero .eyebrow{color:var(--muted)}
+.hero .eyebrow::before{background:var(--muted)}
+.hero h1{font-size:clamp(44px,8vw,86px);font-weight:700;margin:0 0 20px}
+.hero .thesis{font-size:clamp(20px,2.6vw,27px);max-width:22ch;font-family:var(--dsp);font-weight:500;
+  color:var(--ink);line-height:1.22;margin-bottom:14px}
+.hero .thesis em{color:var(--accent);font-style:normal}
+.hero .sub{font-family:var(--mono);font-size:14px;color:var(--muted);margin-bottom:34px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.btn{font-family:var(--body);font-weight:600;font-size:15px;border-radius:10px;padding:12px 20px;
+  display:inline-flex;align-items:center;gap:9px;cursor:pointer;border:1px solid var(--line);
+  background:var(--surface);color:var(--ink);box-shadow:var(--shadow);
+  transition:transform .12s var(--ease),box-shadow .2s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn.primary{background:var(--accent);color:#fff;border-color:transparent}
+.btn.ghost{background:transparent;box-shadow:none}
+.btn.ghost:hover{border-color:var(--accent)}
+.btn svg{width:17px;height:17px;fill:currentColor}
+
+/* about */
+.about p{max-width:64ch;font-size:19px;color:var(--ink)}
+.about p + p{margin-top:16px;color:var(--muted);font-size:17px}
+
+/* skills */
+.skill-row{display:grid;grid-template-columns:170px 1fr;gap:8px 24px;padding:16px 0;border-bottom:1px dashed var(--line)}
+.skill-row:last-child{border-bottom:none}
+.skill-label{font-family:var(--mono);font-size:13px;color:var(--muted);letter-spacing:.03em;padding-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:12.5px;background:var(--chip);color:var(--ink);
+  padding:5px 11px;border-radius:7px;border:1px solid var(--line);transition:transform .12s,color .2s,border-color .2s}
+.chip:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--accent)}
+@media(max-width:600px){.skill-row{grid-template-columns:1fr;gap:10px}}
+
+/* experience timeline */
+.job{display:grid;grid-template-columns:1fr auto;gap:2px 20px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.job:last-child{border-bottom:none}
+.job h3{font-size:23px;font-weight:600}
+.job .role{font-family:var(--body);color:var(--accent);font-weight:600;font-size:15px;margin-top:3px}
+.job .when{font-family:var(--mono);font-size:13px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.job ul{grid-column:1/-1;margin:14px 0 0;padding:0;list-style:none;display:grid;gap:9px}
+.job li{position:relative;padding-left:20px;color:var(--muted);font-size:15.5px;max-width:72ch}
+.job li::before{content:"";position:absolute;left:2px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:.7}
+@media(max-width:600px){.job{grid-template-columns:1fr}.job .when{margin-top:2px}}
+
+/* projects */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 22px 20px;
+  box-shadow:var(--shadow);transition:transform .18s var(--ease),box-shadow .2s,border-color .2s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.card h3{font-size:20px;font-weight:600}
+.badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  background:var(--accent-tint);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);
+  padding:3px 8px;border-radius:6px;white-space:nowrap}
+.badge.dev{background:var(--chip);color:var(--muted);border-color:var(--line)}
+.card .note{color:var(--muted);font-size:14px;margin-bottom:14px}
+.card .tags{display:flex;flex-wrap:wrap;gap:6px}
+.card .tags span{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.card .tags span::after{content:"·";margin-left:6px;opacity:.5}
+.card .tags span:last-child::after{content:""}
+.badge.new{background:#E4F3EA;color:#1E7A34;border:1px solid #B7E0C4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .badge.new{background:#12281B;color:#5FD08A;border-color:#1E5030}}
+:root[data-theme="dark"] .badge.new{background:#12281B;color:#5FD08A;border-color:#1E5030}
+
+/* accordion */
+.acc{border-top:1px solid var(--line)}
+.acc-item{border-bottom:1px solid var(--line)}
+.acc-head{width:100%;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  background:none;border:none;cursor:pointer;padding:22px 4px;text-align:left;color:inherit;
+  transition:padding-left .25s var(--ease)}
+.acc-head:hover{padding-left:8px}
+.acc-co{font-family:var(--dsp);font-size:clamp(20px,2.4vw,24px);font-weight:600;color:var(--heading);transition:color .2s}
+.acc-head:hover .acc-co{color:var(--accent)}
+.acc-role{font-family:var(--body);color:var(--accent);font-weight:600;font-size:14px}
+.acc-count{font-family:var(--mono);font-size:11.5px;color:var(--muted);background:var(--chip);
+  border:1px solid var(--line);padding:3px 9px;border-radius:20px;white-space:nowrap}
+.acc-when{margin-left:auto;font-family:var(--mono);font-size:13px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.acc-chev{display:inline-flex;color:var(--muted);transition:transform .35s var(--ease),color .2s;flex-shrink:0}
+.acc-item.open .acc-chev,.acc-head:hover .acc-chev{color:var(--accent)}
+.acc-item.open .acc-chev{transform:rotate(180deg)}
+.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .38s var(--ease)}
+.acc-item.open .acc-panel{grid-template-rows:1fr}
+.acc-inner{overflow:hidden;min-height:0}
+.acc-pad{padding:2px 0 30px}
+.acc-summary{color:var(--muted);font-size:15px;max-width:70ch;margin-bottom:18px}
+@media(max-width:640px){.acc-when{margin-left:0;width:100%;order:5}.acc-count{order:4}}
+
+/* contact */
+.contact-lead{font-family:var(--dsp);font-weight:500;font-size:clamp(24px,4vw,38px);max-width:18ch;
+  color:var(--heading);line-height:1.15;margin-bottom:26px}
+.contact-lead a{color:var(--accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.contact-grid{display:flex;flex-wrap:wrap;gap:14px 40px;font-family:var(--mono);font-size:14px}
+.contact-grid .k{color:var(--muted);display:block;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.contact-grid a{color:var(--ink);border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
+.contact-grid a:hover{color:var(--accent);border-color:var(--accent)}
+
+footer{border-top:1px solid var(--line);padding:30px 0 44px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+
+/* reveal */
+[data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+[data-reveal].in{opacity:1;transform:none}
+[data-reveal].d1{transition-delay:.07s}[data-reveal].d2{transition-delay:.14s}
+[data-reveal].d3{transition-delay:.21s}[data-reveal].d4{transition-delay:.28s}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  [data-reveal]{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+<nav class="nav" id="nav"><div class="nav-in">
+  <a class="mono-mark" href="#top">MA<b>.</b></a>
+  <div class="nav-links">
+    <a href="#about">about</a><a href="#stack">stack</a><a href="#experience">experience</a><a href="#contact">contact</a>
+  </div>
+  <a class="nav-cta" href="Muhammad-Asnawi-Resume.pdf" download>résumé ↓</a>
+</div></nav>
+
+<main class="wrap" id="top">
+  <header class="hero" id="hero">
+    <div class="eyebrow" data-reveal>Full-Stack Developer · PHP / Laravel</div>
+    <h1 data-reveal class="d1">Muhammad<br>Asnawi</h1>
+    <p class="thesis d2" data-reveal>I build and maintain <em>high-performance</em> web systems — from architecture to production.</p>
+    <p class="sub d3" data-reveal>// 4+ years · government & enterprise · Kajang, Selangor 🇲🇾</p>
+    <div class="cta-row d4" data-reveal>
+      <a class="btn primary" href="Muhammad-Asnawi-Resume.pdf" download><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 2 4 4h-4zM8 13h8v2H8zm0 4h8v2H8z"/></svg> Download résumé</a>
+      <a class="btn ghost" href="mailto:asnawihashim30@gmail.com"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg> Email me</a>
+      <a class="btn ghost" href="https://github.com/USERNAME" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.3-1.8-1.3-1.8-1.1-.7 0-.7 0-.7 1.2.1 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.7 18 5 18 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5"/></svg> GitHub</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/USERNAME" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2M8 19H5V9h3zM6.5 7.7a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6M19 19h-3v-5.3c0-1.4-.5-2.1-1.5-2.1-1.1 0-1.7.7-1.7 2.1V19h-3V9h2.9v1.3c.4-.7 1.4-1.5 2.9-1.5 2.1 0 3.4 1.4 3.4 4.2z"/></svg> LinkedIn</a>
+    </div>
+  </header>
+
+  <section id="about" class="about">
+    <div class="eyebrow" data-reveal>About</div>
+    <p data-reveal>Full-stack developer with 4+ years building and maintaining high-performance <strong>PHP / Laravel</strong> web applications for government and enterprise clients.</p>
+    <p data-reveal class="d1">Strong in system integration (REST / SOAP), database design and migration, and Linux server operations — with a recent hands-on focus on AI-assisted development and code-quality governance. I like owning features end-to-end, from requirements and architecture through deployment, testing, and production support.</p>
+  </section>
+
+  <section id="stack">
+    <div class="eyebrow" data-reveal>Stack</div>
+    <div data-reveal>
+      <div class="skill-row"><div class="skill-label">Languages</div><div class="chips"><span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">Java</span><span class="chip">C++</span><span class="chip">SQL</span></div></div>
+      <div class="skill-row"><div class="skill-label">Frameworks</div><div class="chips"><span class="chip">Laravel</span><span class="chip">Livewire</span><span class="chip">CodeIgniter</span><span class="chip">Yii</span><span class="chip">Spring Boot</span><span class="chip">Vue.js</span><span class="chip">jQuery</span><span class="chip">Tailwind</span><span class="chip">Bootstrap</span><span class="chip">Node.js</span><span class="chip">Flutter</span></div></div>
+      <div class="skill-row"><div class="skill-label">Databases</div><div class="chips"><span class="chip">MySQL</span><span class="chip">MariaDB</span><span class="chip">PostgreSQL</span><span class="chip">Oracle</span><span class="chip">MongoDB</span></div></div>
+      <div class="skill-row"><div class="skill-label">APIs & Integration</div><div class="chips"><span class="chip">REST</span><span class="chip">SOAP</span><span class="chip">Eloquent ORM</span><span class="chip">System integration</span><span class="chip">Data migration</span></div></div>
+      <div class="skill-row"><div class="skill-label">DevOps & Servers</div><div class="chips"><span class="chip">Git</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Nginx</span><span class="chip">Apache</span><span class="chip">Linux</span><span class="chip">Windows Server</span></div></div>
+      <div class="skill-row"><div class="skill-label">Practices</div><div class="chips"><span class="chip">OOP</span><span class="chip">MVC</span><span class="chip">Agile / Scrum</span><span class="chip">Testing (unit/integration/perf)</span><span class="chip">Code review</span></div></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="eyebrow" data-reveal>Experience &amp; Work</div>
+    <p class="about" style="max-width:64ch;color:var(--muted);margin-bottom:24px" data-reveal>Click a company to expand the projects delivered there. Most are government &amp; enterprise systems (internal), so they're described rather than linked.</p>
+    <div class="acc" data-reveal><div class="acc-item open"><button class="acc-head" aria-expanded="true"><span class="acc-co">The Makeover Guys</span><span class="acc-role">Full-Stack Developer / Digital Product Engineer</span><span class="acc-count">3 projects</span><span class="acc-when">Jan 2026 — Present</span><span class="acc-chev" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-panel"><div class="acc-inner"><div class="acc-pad"><p class="acc-summary">Building and maintaining high-performance PHP/Laravel apps and driving AI-assisted development with strict code-quality governance.</p><div class="grid"><div class="card"><div class="card-top"><h3>Quotes</h3><span class="badge new">New</span></div><p class="note">A new internal project — currently in development.</p></div><div class="card"><div class="card-top"><h3>The Makeover webpage</h3><span class="badge dev">Developer</span></div><p class="note">Development and maintenance of the company website.</p><div class="tags"><span>PHP · CodeIgniter</span><span>JavaScript</span><span>MySQL</span><span>Bootstrap</span><span>Git</span></div></div><div class="card"><div class="card-top"><h3>Garage</h3><span class="badge dev">Developer</span></div><p class="note">Development and maintenance of an internal CodeIgniter system.</p><div class="tags"><span>PHP · CodeIgniter</span><span>JavaScript</span><span>MySQL</span><span>Bootstrap</span><span>Git</span></div></div></div></div></div></div></div><div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-co">Two Q Alliance (2QA)</span><span class="acc-role">Software Developer</span><span class="acc-count">6 projects</span><span class="acc-when">Mar 2025 — Dec 2025</span><span class="acc-chev" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-panel"><div class="acc-inner"><div class="acc-pad"><p class="acc-summary">Full-SDLC PHP delivery on Agile sprints — code reviews, mentoring, data migration, deployments, and client-facing requirement analysis.</p><div class="grid"><div class="card"><div class="card-top"><h3>PSOH</h3><span class="badge">Technical Lead</span></div><p class="note">Forestry system on Laravel &amp; Livewire. Led the delivery flow, resolved core issues in active development, and implemented interactive features, backend processes, and database logic — deployed on Linux with Git.</p><div class="tags"><span>Laravel</span><span>Livewire</span><span>MySQL</span><span>Git</span><span>Linux</span></div></div><div class="card"><div class="card-top"><h3>KPM Portal</h3><span class="badge">Technical Lead</span></div><p class="note">Maintained core modules and shipped new features to user requirements; proposed and designed the technical solutions; kept the system reliable via Git and Linux server management.</p><div class="tags"><span>Laravel</span><span>REST</span><span>MySQL</span><span>Nginx</span><span>Linux</span></div></div><div class="card"><div class="card-top"><h3>UMPSA — Univ. Malaysia Pahang</h3><span class="badge dev">Developer</span></div><p class="note">Contributed to a Laravel web application for UMP; used Oracle, Docker, Git, and Linux across development and deployment.</p><div class="tags"><span>Laravel</span><span>Livewire</span><span>Oracle</span><span>Docker</span><span>Git</span></div></div><div class="card"><div class="card-top"><h3>JKSM</h3><span class="badge dev">Developer</span></div><p class="note">Developed REST APIs to integrate the system with MyDigital ID — Malaysia's national digital identity.</p><div class="tags"><span>Laravel</span><span>PHP</span><span>REST</span><span>MySQL</span><span>Linux</span></div></div><div class="card"><div class="card-top"><h3>SISPAC</h3><span class="badge dev">Developer</span></div><p class="note">Maintained the system and implemented security measures; ensured reliability through Git-based version control and Linux server management.</p><div class="tags"><span>Laravel</span><span>PHP</span><span>REST</span><span>MySQL</span><span>Linux</span></div></div><div class="card"><div class="card-top"><h3>e-SPANP 2.0</h3><span class="badge dev">Developer</span></div><p class="note">Maintenance and enhancement of the e-SPANP 2.0 Laravel system.</p><div class="tags"><span>Laravel</span><span>PHP</span><span>MySQL</span><span>REST</span><span>Nginx</span><span>Git</span></div></div></div></div></div></div></div><div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-co">Object Expression (OESB)</span><span class="acc-role">Software Engineer</span><span class="acc-count">5 projects</span><span class="acc-when">Dec 2021 — Nov 2024</span><span class="acc-chev" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-panel"><div class="acc-inner"><div class="acc-pad"><p class="acc-summary">New modules and change requests across government &amp; enterprise systems — REST/SOAP integrations, database and Linux server administration.</p><div class="grid"><div class="card"><div class="card-top"><h3>OSC3Plus Online</h3><span class="badge dev">Developer</span></div><p class="note">Built and maintained core backend modules; designed RESTful APIs for data exchange and payment modules; ensured reliability with Git-based version control and Linux server management.</p><div class="tags"><span>Laravel</span><span>PHP</span><span>REST</span><span>MySQL</span><span>Git</span><span>Linux</span></div></div><div class="card"><div class="card-top"><h3>MyeTaPP</h3><span class="badge dev">Developer</span></div><p class="note">Developed and maintained core backend modules in Java &amp; Oracle; fixed complex bugs, monitored server performance, and built SOAP APIs for data exchange.</p><div class="tags"><span>Java · LeBAH</span><span>Oracle</span><span>SOAP</span><span>Linux</span></div></div><div class="card"><div class="card-top"><h3>E-SSDL — Agensi Nuklear Malaysia</h3><span class="badge dev">Developer</span></div><p class="note">Maintained and developed the revamped E-SSDL system for the Malaysian Nuclear Agency; built features and deployed on Linux servers.</p><div class="tags"><span>Laravel</span><span>PHP</span><span>MySQL</span><span>Git</span><span>Linux</span></div></div><div class="card"><div class="card-top"><h3>HIMS</h3><span class="badge dev">Developer</span></div><p class="note">Maintained core modules and developed new features from user requirements; designed both REST and SOAP APIs for data exchange between systems.</p><div class="tags"><span>Laravel</span><span>Vue.js</span><span>PHP</span><span>REST / SOAP</span><span>MySQL</span></div></div><div class="card"><div class="card-top"><h3>MyAssessment</h3><span class="badge dev">Developer</span></div><p class="note">Maintained existing modules and built new core modules for vetting processes; created REST APIs, including a Java intermediary application integrating with another system.</p><div class="tags"><span>PHP</span><span>Java</span><span>REST</span><span>Git</span><span>Linux</span></div></div></div></div></div></div></div></div>
+  </section>
+
+  <section id="contact">
+    <div class="eyebrow" data-reveal>Contact</div>
+    <p class="contact-lead" data-reveal>Let's build something — reach me at <a href="mailto:asnawihashim30@gmail.com">asnawihashim30@gmail.com</a>.</p>
+    <div class="contact-grid d1" data-reveal>
+      <div><span class="k">Email</span><a href="mailto:asnawihashim30@gmail.com">asnawihashim30@gmail.com</a></div>
+      <div><span class="k">Phone</span><a href="tel:+601123410520">+60 11-2341 0520</a></div>
+      <div><span class="k">GitHub</span><a href="https://github.com/USERNAME" target="_blank" rel="noopener">github.com/USERNAME</a></div>
+      <div><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/USERNAME" target="_blank" rel="noopener">linkedin.com/in/USERNAME</a></div>
+      <div><span class="k">Location</span><span>Kajang, Selangor, Malaysia</span></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <span>© 2026 Muhammad Asnawi bin Hashim</span>
+  <span>Built by hand · PHP · Laravel</span>
+</div></footer>
+
+<script>
+(function(){
+  var rm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // reveal
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, {threshold:0.12, rootMargin:"0px 0px -50px 0px"});
+  document.querySelectorAll("[data-reveal]").forEach(function(el){ io.observe(el); });
+  // accordion — independent toggles
+  document.querySelectorAll(".acc-head").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var item = btn.parentNode;
+      var open = item.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+  // nav scrolled + progress bar
+  var nav = document.getElementById("nav"), prog = document.getElementById("prog");
+  function frame(){
+    var y = window.scrollY || document.documentElement.scrollTop;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.transform = "scaleX(" + (max>0 ? y/max : 0) + ")";
+    if(y>8) nav.classList.add("scrolled"); else nav.classList.remove("scrolled");
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
